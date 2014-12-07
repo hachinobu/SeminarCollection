@@ -28,8 +28,7 @@
 
 @implementation SeminarAPIManager
 
-+ (instancetype)sharedManager
-{
++ (instancetype)sharedManager {
     static SeminarAPIManager *_sharedManager = nil;
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
@@ -39,8 +38,7 @@
     return _sharedManager;
 }
 
-- (id)init
-{
+- (id)init {
     self = [super init];
     if (self) {
         self.zusaarAPIClient = [ZusaarAPIClient sharedClient];
@@ -52,8 +50,7 @@
     return self;
 }
 
-- (void)loadAllSeminars
-{
+- (void)loadAllSeminars {
     NSArray *seminarEntities = [Seminar MR_findAllSortedBy:@"startedAt,endedAt" ascending:YES];
     if (seminarEntities.count > 0) {
         [[self mutableArrayValueForKey:@"seminars"]
@@ -61,8 +58,7 @@
     }
 }
 
-- (void)reloadSeminarsWithType:(SeminarType)type withBlock:(void (^)(NSError *))block
-{
+- (void)reloadSeminarsWithType:(SeminarType)type withBlock:(void (^)(NSError *))block {
     __weak typeof(self) weakSelf = self;
     
     [self loadSeminarsWithCompletion:^(NSArray *seminars, NSError *error) {
@@ -104,8 +100,7 @@
     }];
 }
 
-- (void)loadSeminarsWithType:(SeminarType)type withCompletion:(void (^)(NSArray *results, NSError *error))block
-{
+- (void)loadSeminarsWithType:(SeminarType)type withCompletion:(void (^)(NSArray *results, NSError *error))block {
     switch (type) {
         case SeminarTypeAll:
             
@@ -124,12 +119,60 @@
             break;
             
         default:
+            
             break;
     }
 }
 
-- (void)loadSeminarsWithCompletion:(void (^)(NSArray *results, NSError *error))block
-{
+- (void)loadSeminarsWithCompletion:(void (^)(NSArray *results, NSError *error))block {
+    __weak typeof(self) weakSelf = self;
+    [self.zusaarAPIClient getSeminars:nil withCompletion:^(NSDictionary *results, NSError *error) {
+        
+        NSArray *seminars = nil;
+        if (results && [results isKindOfClass:[NSDictionary class]]) {
+            NSArray *seminarsJSON = results[@"event"];
+            seminars = [weakSelf parseSeminars:seminarsJSON withSeminarType:SeminarTypeZusaar];
+        }
+        
+        if (block) {
+            block(seminars, error);
+        }
+        
+    }];
+    
+    [self.connpassAPIClient getSeminars:nil withCompletion:^(NSDictionary *results, NSError *error) {
+        
+        NSArray *seminars = nil;
+        if (results && [results isKindOfClass:[NSDictionary class]]) {
+            NSArray *seminarsJSON = results[@"events"];
+            seminars = [weakSelf parseSeminars:seminarsJSON withSeminarType:SeminarTypeConnpass];
+        }
+        
+        if (block) {
+            block(seminars, error);
+        }
+        
+    }];
+    
+    [self.atndAPIClient getSeminars:@{@"format": @"json"} withCompletion:^(NSDictionary *results, NSError *error) {
+        
+        NSArray *seminars = nil;
+        if (results && [results isKindOfClass:[NSDictionary class]]) {
+            NSArray *seminarsJSON = results[@"events"];
+            seminars = [weakSelf parseSeminars:seminarsJSON withSeminarType:SeminarTypeZusaar];
+        }
+        
+        if (block) {
+            block(seminars, error);
+        }
+        
+    }];
+    
+    
+    
+}
+
+- (void)loadZussarSeminarWithCompletion:(void (^)(NSArray *results, NSError *error))block {
     __weak typeof(self) weakSelf = self;
     [self.zusaarAPIClient getSeminars:nil withCompletion:^(NSDictionary *results, NSError *error) {
         
@@ -146,34 +189,14 @@
     }];
 }
 
-- (void)loadZussarSeminarWithCompletion:(void (^)(NSArray *results, NSError *error))block
-{
-    __weak typeof(self) weakSelf = self;
-    [self.zusaarAPIClient getSeminars:nil withCompletion:^(NSDictionary *results, NSError *error) {
-        
-        NSArray *seminars = nil;
-        if (results && [results isKindOfClass:[NSDictionary class]]) {
-            NSArray *seminarsJSON = results[@"event"];
-            seminars = [weakSelf parseSeminars:seminarsJSON withSeminarType:SeminarTypeZusaar];
-        }
-        
-        if (block) {
-            block(seminars, error);
-        }
-        
-    }];
-}
-
-- (SeminarModel *)parseSeminar:(NSDictionary *)seminarDic withModel:(id)modelClass andSite:(NSString *)site
-{
+- (SeminarModel *)parseSeminar:(NSDictionary *)seminarDic withModel:(id)modelClass andSite:(NSString *)site {
     SeminarModel *seminarModel = [MTLJSONAdapter modelOfClass:modelClass fromJSONDictionary:seminarDic error:nil];
     seminarModel.site = site;
     
     return seminarModel;
 }
 
-- (SeminarModel *)parseSeminar:(NSDictionary *)jsonDic withType:(SeminarType)type
-{
+- (SeminarModel *)parseSeminar:(NSDictionary *)jsonDic withType:(SeminarType)type {
     switch (type) {
         case SeminarTypeZusaar:
             return [self parseSeminar:jsonDic withModel:[ZusaarModel class] andSite:@"Zusaar"];
@@ -194,8 +217,7 @@
     return nil;
 }
 
-- (NSArray *)parseSeminars:(NSArray *)seminars withSeminarType:(SeminarType)type
-{
+- (NSArray *)parseSeminars:(NSArray *)seminars withSeminarType:(SeminarType)type {
     NSMutableArray *mutableSeminars = [NSMutableArray array];
     
     [seminars enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {

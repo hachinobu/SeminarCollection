@@ -11,9 +11,9 @@
 @implementation AtndModel
 
 #pragma mark - override
-+ (NSDictionary *)JSONKeyPathsByPropertyKey
-{
-    return @{@"catchCopy": @"catch",
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+    return @{
+             @"catchCopy": @"catch",
              @"detail": @"description",
              @"endedAt": @"ended_at",
              @"eventId": @"event_id",

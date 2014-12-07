@@ -12,8 +12,7 @@ static NSString * const ZussarBaseURLString = @"http://www.zusaar.com/api/event/
 
 @implementation ZusaarAPIClient
 
-+ (instancetype)sharedClient
-{
++ (instancetype)sharedClient {
     static ZusaarAPIClient *_sharedClient = nil;
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{

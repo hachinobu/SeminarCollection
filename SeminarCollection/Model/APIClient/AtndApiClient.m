@@ -12,8 +12,7 @@
 
 static NSString * const AtndBaseURLString = @"http://api.atnd.org/events/";
 
-+ (instancetype)sharedClient
-{
++ (instancetype)sharedClient {
     static AtndApiClient *_sharedClient = nil;
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{

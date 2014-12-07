@@ -10,8 +10,7 @@
 
 @implementation SeminarAPIClient
 
-+ (instancetype)sharedClient
-{
++ (instancetype)sharedClient {
     static SeminarAPIClient *_sharedClient = nil;
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
@@ -21,8 +20,7 @@
 }
 
 - (void)getSeminars:(NSDictionary *)parameters
-     withCompletion:(void (^)(NSDictionary *, NSError *))block
-{
+     withCompletion:(void (^)(NSDictionary *, NSError *))block {
     [self GET:@"" parameters:parameters success:^(NSURLSessionDataTask *task, id responseObject) {
         if (block) {
             block(responseObject, nil);

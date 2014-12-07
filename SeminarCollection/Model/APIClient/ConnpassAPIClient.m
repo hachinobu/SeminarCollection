@@ -12,8 +12,7 @@ static NSString * const ConnpassBaseURLString = @"http://connpass.com/api/v1/eve
 
 @implementation ConnpassAPIClient
 
-+ (instancetype)sharedClient
-{
++ (instancetype)sharedClient {
     static ConnpassAPIClient *_sharedClient = nil;
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{

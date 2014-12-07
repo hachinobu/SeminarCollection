@@ -13,25 +13,28 @@
 
 
 #pragma mark - MTLJSONSerializing
-+ (NSDictionary *)JSONKeyPathsByPropertyKey
-{
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
     return @{};
 }
 
 #pragma mark - MTLManagedObjectSerializing
-+ (NSString *)managedObjectEntityName
-{
++ (NSString *)managedObjectEntityName {
     return @"Seminar";
 }
 
-+ (NSDictionary *)managedObjectKeysByPropertyKey
-{
++ (NSDictionary *)managedObjectKeysByPropertyKey {
     return @{};
 }
 
 #pragma mark - JSONTransformer
-+ (NSValueTransformer *)startedAtJSONTransformer
-{
++ (NSValueTransformer *)eventIdJSONTransformer {
+    return [MTLValueTransformer reversibleTransformerWithBlock:^id(id obj) {
+        //CommpassのeventIdの型であるNSCFNumberを考慮
+        return [NSString stringWithFormat:@"%@", obj];
+    }];
+}
+
++ (NSValueTransformer *)startedAtJSONTransformer {
     return [MTLValueTransformer reversibleTransformerWithForwardBlock:^(NSString *str) {
         return [DateUtil parseISO8601Date:str];
     } reverseBlock:^(NSDate *date) {
@@ -40,8 +43,7 @@
 
 }
 
-+ (NSValueTransformer *)endedAtJSONTransformer
-{
++ (NSValueTransformer *)endedAtJSONTransformer {
     return [MTLValueTransformer reversibleTransformerWithForwardBlock:^(NSString *str) {
         return [DateUtil parseISO8601Date:str];
     } reverseBlock:^(NSDate *date) {
@@ -49,6 +51,45 @@
     }];
 }
 
++ (NSValueTransformer *)latJSONTransformer {
+    return [MTLValueTransformer reversibleTransformerWithBlock:^id(id obj) {
+        if (!obj || obj == [NSNull null]) {
+            return @(0.0);
+        } else {
+            return obj;
+        }
+    }];
+}
+
++ (NSValueTransformer *)lonJSONTransformer {
+    return [MTLValueTransformer reversibleTransformerWithBlock:^id(id obj) {
+        if (!obj || obj == [NSNull null]) {
+            return @(0.0);
+        } else {
+            return obj;
+        }
+    }];
+}
+
++ (NSValueTransformer *)limitJSONTransformer {
+    return [MTLValueTransformer reversibleTransformerWithBlock:^id(id obj) {
+        if (!obj || obj == [NSNull null]) {
+            return @(0);
+        } else {
+            return obj;
+        }
+    }];
+}
+
++ (NSValueTransformer *)waitingJSONTransformer {
+    return [MTLValueTransformer reversibleTransformerWithBlock:^id(id obj) {
+        if (!obj || obj == [NSNull null]) {
+            return @(0);
+        } else {
+            return obj;
+        }
+    }];
+}
 
 
 @end

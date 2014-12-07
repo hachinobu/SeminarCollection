@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
+	<false/>
+	<key>IDESourceControlProjectIdentifier</key>
+	<string>B5165481-384D-4BBE-848E-338B7B193929</string>
+	<key>IDESourceControlProjectName</key>
+	<string>SeminarCollection</string>
+	<key>IDESourceControlProjectOriginsDictionary</key>
+	<dict>
+		<key>C3F4BED20AB9B941790ACE4B5FB69F3BF7F869BB</key>
+		<string>https://github.com/hachinobu/SeminarCollection.git</string>
+	</dict>
+	<key>IDESourceControlProjectPath</key>
+	<string>SeminarCollection.xcworkspace</string>
+	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
+	<dict>
+		<key>C3F4BED20AB9B941790ACE4B5FB69F3BF7F869BB</key>
+		<string>..</string>
+	</dict>
+	<key>IDESourceControlProjectURL</key>
+	<string>https://github.com/hachinobu/SeminarCollection.git</string>
+	<key>IDESourceControlProjectVersion</key>
+	<integer>111</integer>
+	<key>IDESourceControlProjectWCCIdentifier</key>
+	<string>C3F4BED20AB9B941790ACE4B5FB69F3BF7F869BB</string>
+	<key>IDESourceControlProjectWCConfigurations</key>
+	<array>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>C3F4BED20AB9B941790ACE4B5FB69F3BF7F869BB</string>
+			<key>IDESourceControlWCCName</key>
+			<string>SeminarCollection</string>
+		</dict>
+	</array>
+</dict>
+</plist>
