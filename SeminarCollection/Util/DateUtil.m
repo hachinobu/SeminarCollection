@@ -12,7 +12,7 @@
 
 + (NSDate *)parseISO8601Date:(NSString *)dateString {
     NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
-    formatter.locale = [[NSLocale alloc] initWithLocaleIdentifier:@"en_US"];
+    formatter.locale = [[NSLocale alloc] initWithLocaleIdentifier:@"en_US_POSIX"];
     formatter.dateFormat = @"yyyy'-'MM'-'dd'T'HH':'mm':'ssZZZZ";
     NSDate *date = [formatter dateFromString:dateString];
     
@@ -21,7 +21,7 @@
 
 + (NSString *)formatDate:(NSDate *)date formatString:(NSString *)format {
     NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
-    formatter.locale = [[NSLocale alloc] initWithLocaleIdentifier:@"en_US"];
+    formatter.locale = [[NSLocale alloc] initWithLocaleIdentifier:@"en_US_POSIX"];
     formatter.dateFormat = format;
     NSString *dateString = [formatter stringFromDate:date];
     

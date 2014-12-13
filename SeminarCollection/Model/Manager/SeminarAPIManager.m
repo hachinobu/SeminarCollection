@@ -51,7 +51,7 @@
 }
 
 - (void)loadAllSeminars {
-    NSArray *seminarEntities = [Seminar MR_findAllSortedBy:@"startedAt,endedAt" ascending:YES];
+    NSArray *seminarEntities = [Seminar MR_findAllSortedBy:@"startedAt,endedAt" ascending:NO];
     if (seminarEntities.count > 0) {
         [[self mutableArrayValueForKey:@"seminars"]
          replaceObjectsInRange:NSMakeRange(0, [self.seminars count]) withObjectsFromArray:seminarEntities];
@@ -60,7 +60,6 @@
 
 - (void)reloadSeminarsWithType:(SeminarType)type withBlock:(void (^)(NSError *))block {
     __weak typeof(self) weakSelf = self;
-    
     [self loadSeminarsWithCompletion:^(NSArray *seminars, NSError *error) {
        
         if ([seminars count] > 0) {
@@ -68,23 +67,20 @@
             [MagicalRecord saveWithBlock:^(NSManagedObjectContext *localContext) {
                 
                 [seminars enumerateObjectsUsingBlock:^(SeminarModel *seminar, NSUInteger idx, BOOL *stop) {
-                    
                     //同一既存データは削除
                     Seminar *seminarInfo = [Seminar findSeminarWithEventId:seminar.eventId andSite:seminar.site inContext:localContext];
                     [seminarInfo MR_deleteInContext:localContext];
                     [MTLManagedObjectAdapter managedObjectFromModel:seminar insertingIntoContext:localContext error:nil];
-                    
                 }];
                 
                 
             } completion:^(BOOL success, NSError *error) {
                 if (success) {
                     // 保存した情報を取得
-                    NSArray *seminarEntities = [Seminar MR_findAllSortedBy:@"startedAt,endedAt" ascending:YES];
+                    NSArray *seminarEntities = [Seminar MR_findAllSortedBy:@"startedAt,endedAt" ascending:NO];
                     
                     [[weakSelf mutableArrayValueForKey:@"seminars"]
                      replaceObjectsInRange:NSMakeRange(0, [self.seminars count]) withObjectsFromArray:seminarEntities];
-                    
                 }
                 
                 if (block) {
@@ -92,7 +88,6 @@
                 }
             }];
         } else {
-            
             if (block) {
                 block(error);
             }
@@ -137,7 +132,6 @@
         if (block) {
             block(seminars, error);
         }
-        
     }];
     
     [self.connpassAPIClient getSeminars:nil withCompletion:^(NSDictionary *results, NSError *error) {
@@ -151,7 +145,6 @@
         if (block) {
             block(seminars, error);
         }
-        
     }];
     
     [self.atndAPIClient getSeminars:@{@"format": @"json"} withCompletion:^(NSDictionary *results, NSError *error) {
@@ -165,27 +158,48 @@
         if (block) {
             block(seminars, error);
         }
-        
     }];
-    
-    
-    
 }
 
 - (void)loadZussarSeminarWithCompletion:(void (^)(NSArray *results, NSError *error))block {
     __weak typeof(self) weakSelf = self;
     [self.zusaarAPIClient getSeminars:nil withCompletion:^(NSDictionary *results, NSError *error) {
-        
         NSArray *seminars = nil;
         if (results && [results isKindOfClass:[NSDictionary class]]) {
             NSArray *seminarsJSON = results[@"event"];
             seminars = [weakSelf parseSeminars:seminarsJSON withSeminarType:SeminarTypeZusaar];
         }
-        
         if (block) {
             block(seminars, error);
         }
-        
+    }];
+}
+
+- (void)loadAtndSeminarWithCompletion:(void (^)(NSArray *results, NSError *error))block {
+    __weak typeof(self) weakSelf = self;
+    [self.atndAPIClient getSeminars:nil withCompletion:^(NSDictionary *results, NSError *error) {
+        NSArray *seminars = nil;
+        if (results && [results isKindOfClass:[NSDictionary class]]) {
+            NSArray *seminarsJSON = results[@"event"];
+            seminars = [weakSelf parseSeminars:seminarsJSON withSeminarType:SeminarTypeAtnd];
+        }
+        if (block) {
+            block(seminars, error);
+        }
+    }];
+}
+
+- (void)loadConnpassSeminarWithCompletion:(void (^)(NSArray *results, NSError *error))block {
+    __weak typeof(self) weakSelf = self;
+    [self.connpassAPIClient getSeminars:nil withCompletion:^(NSDictionary *results, NSError *error) {
+        NSArray *seminars = nil;
+        if (results && [results isKindOfClass:[NSDictionary class]]) {
+            NSArray *seminarsJSON = results[@"event"];
+            seminars = [weakSelf parseSeminars:seminarsJSON withSeminarType:SeminarTypeAtnd];
+        }
+        if (block) {
+            block(seminars, error);
+        }
     }];
 }
 

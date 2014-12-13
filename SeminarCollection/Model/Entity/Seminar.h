@@ -5,4 +5,11 @@
 
 //イベントIDとサイトの組み合わせで一意のセミナー情報を取得する
 + (Seminar *)findSeminarWithEventId:(NSString *)eventId andSite:(NSString *)site inContext:(NSManagedObjectContext *)context;
+
+- (NSString *)startDateString;
+- (NSString *)endDateString;
+- (NSString *)schedule;
+- (NSString *)numberStatus;
+- (NSString *)placeInfo;
+
 @end

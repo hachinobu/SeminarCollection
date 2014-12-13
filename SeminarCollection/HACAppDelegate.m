@@ -8,7 +8,6 @@
 
 #import "HACAppDelegate.h"
 #import "AFNetworkActivityLogger.h"
-#import "SeminarAPIManager.h"
 
 static NSString * const StoreName = @"Seminar.sqlite";
 
@@ -17,12 +16,6 @@ static NSString * const StoreName = @"Seminar.sqlite";
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
     [MagicalRecord setupCoreDataStackWithStoreNamed:StoreName];
-    [[SeminarAPIManager sharedManager] reloadSeminarsWithType:SeminarTypeAll withBlock:^(NSError *error) {
-        
-        
-        
-    }];
-    
     return YES;
 }
 							
