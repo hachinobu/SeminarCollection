@@ -38,6 +38,7 @@
 		C2CEF18519756519006C5E5B /* _Seminar.m in Sources */ = {isa = PBXBuildFile; fileRef = C2CEF18219756519006C5E5B /* _Seminar.m */; };
 		C2CEF18619756519006C5E5B /* Seminar.m in Sources */ = {isa = PBXBuildFile; fileRef = C2CEF18419756519006C5E5B /* Seminar.m */; };
 		C2CEF18A1975660F006C5E5B /* ZusaarAPIClient.m in Sources */ = {isa = PBXBuildFile; fileRef = C2CEF1891975660F006C5E5B /* ZusaarAPIClient.m */; };
+		C2D5A3F81A3D737F00F615B5 /* HACUpDownTransition.m in Sources */ = {isa = PBXBuildFile; fileRef = C2D5A3F71A3D737F00F615B5 /* HACUpDownTransition.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -102,6 +103,8 @@
 		C2CEF18419756519006C5E5B /* Seminar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Seminar.m; sourceTree = "<group>"; };
 		C2CEF1881975660F006C5E5B /* ZusaarAPIClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZusaarAPIClient.h; sourceTree = "<group>"; };
 		C2CEF1891975660F006C5E5B /* ZusaarAPIClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZusaarAPIClient.m; sourceTree = "<group>"; };
+		C2D5A3F61A3D737F00F615B5 /* HACUpDownTransition.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HACUpDownTransition.h; sourceTree = "<group>"; };
+		C2D5A3F71A3D737F00F615B5 /* HACUpDownTransition.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HACUpDownTransition.m; sourceTree = "<group>"; };
 		F7E94DBCE0111A16E03D290E /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -228,6 +231,7 @@
 		C2CEF14619755F3C006C5E5B /* SeminarCollection */ = {
 			isa = PBXGroup;
 			children = (
+				C2D5A3F51A3D731E00F615B5 /* Transition */,
 				C251AEA21A3BFA6E00DD3992 /* Controller */,
 				C251AE9D1A3BF67700DD3992 /* View */,
 				C298DCCE1976139B000EB78A /* Util */,
@@ -306,6 +310,15 @@
 				C298DCEA197789DE000EB78A /* AtndApiClient.m */,
 			);
 			path = APIClient;
+			sourceTree = "<group>";
+		};
+		C2D5A3F51A3D731E00F615B5 /* Transition */ = {
+			isa = PBXGroup;
+			children = (
+				C2D5A3F61A3D737F00F615B5 /* HACUpDownTransition.h */,
+				C2D5A3F71A3D737F00F615B5 /* HACUpDownTransition.m */,
+			);
+			path = Transition;
 			sourceTree = "<group>";
 		};
 		C2E72D8DFE45E8C89ECE6D11 /* Pods */ = {
@@ -450,6 +463,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C2D5A3F81A3D737F00F615B5 /* HACUpDownTransition.m in Sources */,
 				C2CEF14D19755F3C006C5E5B /* main.m in Sources */,
 				C298DCE819778839000EB78A /* SeminarAPIClient.m in Sources */,
 				C298DCD1197613E4000EB78A /* DateUtil.m in Sources */,

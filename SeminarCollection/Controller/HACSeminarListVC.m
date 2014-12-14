@@ -11,10 +11,11 @@
 #import "HACSeminarCell.h"
 #import "Seminar.h"
 #import "HACSeminarDetailVC.h"
+#import "HACUpDownTransition.h"
 
 static NSString * const kCellIdentifier = @"SeminarCell";
 
-@interface HACSeminarListVC ()
+@interface HACSeminarListVC () <UINavigationControllerDelegate>
 
 @property (strong, nonatomic) UIRefreshControl *refreshControl;
 @property (strong, nonatomic) NSMutableArray *seminars;
@@ -26,6 +27,7 @@ static NSString * const kCellIdentifier = @"SeminarCell";
 - (void)viewDidLoad {
     [super viewDidLoad];
     
+    self.navigationController.delegate = self;
     [[SeminarAPIManager sharedManager] addObserver:self
                                         forKeyPath:@"seminars"
                                            options:NSKeyValueObservingOptionNew
@@ -119,6 +121,15 @@ static NSString * const kCellIdentifier = @"SeminarCell";
     vc.seminarInfo = [SeminarAPIManager sharedManager].seminars[selectedIdx.row];
 }
 
+#pragma mark - UINavigationControllerDelegate
+- (id<UIViewControllerAnimatedTransitioning>)navigationController:(UINavigationController *)navigationController animationControllerForOperation:(UINavigationControllerOperation)operation fromViewController:(UIViewController *)fromVC toViewController:(UIViewController *)toVC {
+    
+    if (operation == UINavigationControllerOperationPush) {
+        return [HACUpDownTransition new];
+    }
+    return nil;
+}
+
 /*
 // Override to support conditional editing of the table view.
 - (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -162,5 +173,7 @@ static NSString * const kCellIdentifier = @"SeminarCell";
     // Pass the selected object to the new view controller.
 }
 */
+
+
 
 @end
