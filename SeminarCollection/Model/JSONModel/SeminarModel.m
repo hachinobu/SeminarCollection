@@ -9,6 +9,8 @@
 #import "SeminarModel.h"
 #import "DateUtil.h"
 
+static NSString * const kISO8601Format = @"yyyy'-'MM'-'dd'T'HH':'mm':'ssZZZZ";
+
 @implementation SeminarModel
 
 
@@ -36,7 +38,7 @@
 
 + (NSValueTransformer *)startedAtJSONTransformer {
     return [MTLValueTransformer reversibleTransformerWithForwardBlock:^(NSString *str) {
-        return [DateUtil parseISO8601Date:str];
+        return [DateUtil parseISO8601Date:str iso0860Format:kISO8601Format];
     } reverseBlock:^(NSDate *date) {
         return [DateUtil formatDate:date formatString:@"MM/dd"];
     }];
@@ -45,7 +47,7 @@
 
 + (NSValueTransformer *)endedAtJSONTransformer {
     return [MTLValueTransformer reversibleTransformerWithForwardBlock:^(NSString *str) {
-        return [DateUtil parseISO8601Date:str];
+        return [DateUtil parseISO8601Date:str iso0860Format:kISO8601Format];
     } reverseBlock:^(NSDate *date) {
         return [DateUtil formatDate:date formatString:@"MM/dd"];
     }];

@@ -10,7 +10,8 @@
 
 @interface DateUtil : NSObject
 
-+ (NSDate *)parseISO8601Date:(NSString *)dateString;
+//+ (NSDate *)parseISO8601Date:(NSString *)dateString;
++ (NSDate *)parseISO8601Date:(NSString *)dateString iso0860Format:(NSString *)format;
 + (NSString *)formatDate:(NSDate *)date formatString:(NSString *)format;
 
 @end

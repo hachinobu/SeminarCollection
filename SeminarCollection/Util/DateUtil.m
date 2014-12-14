@@ -10,12 +10,11 @@
 
 @implementation DateUtil
 
-+ (NSDate *)parseISO8601Date:(NSString *)dateString {
++ (NSDate *)parseISO8601Date:(NSString *)dateString iso0860Format:(NSString *)format {
     NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
     formatter.locale = [[NSLocale alloc] initWithLocaleIdentifier:@"en_US_POSIX"];
-    formatter.dateFormat = @"yyyy'-'MM'-'dd'T'HH':'mm':'ssZZZZ";
+    formatter.dateFormat = format;
     NSDate *date = [formatter dateFromString:dateString];
-    
     return date;
 }
 

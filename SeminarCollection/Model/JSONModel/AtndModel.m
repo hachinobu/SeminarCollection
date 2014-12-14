@@ -7,6 +7,9 @@
 //
 
 #import "AtndModel.h"
+#import "DateUtil.h"
+
+static NSString * const kISO8601AtndFormat = @"yyyy'-'MM'-'dd'T'HH':'mm':'ss.SSSZZZZ";
 
 @implementation AtndModel
 
@@ -22,6 +25,24 @@
              @"startedAt": @"started_at",
              @"ownerTwitterId": @"owner_twitter_id",
             };
+}
+
+//Atndのjson日付は[うるう秒]がはいってくるためオーバーライド
++ (NSValueTransformer *)startedAtJSONTransformer {
+    return [MTLValueTransformer reversibleTransformerWithForwardBlock:^(NSString *str) {
+        return [DateUtil parseISO8601Date:str iso0860Format:kISO8601AtndFormat];
+    } reverseBlock:^(NSDate *date) {
+        return [DateUtil formatDate:date formatString:@"MM/dd"];
+    }];
+    
+}
+
++ (NSValueTransformer *)endedAtJSONTransformer {
+    return [MTLValueTransformer reversibleTransformerWithForwardBlock:^(NSString *str) {
+        return [DateUtil parseISO8601Date:str iso0860Format:kISO8601AtndFormat];
+    } reverseBlock:^(NSDate *date) {
+        return [DateUtil formatDate:date formatString:@"MM/dd"];
+    }];
 }
 
 @end

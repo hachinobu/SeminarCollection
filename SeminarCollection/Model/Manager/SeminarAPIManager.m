@@ -121,7 +121,7 @@
 
 - (void)loadSeminarsWithCompletion:(void (^)(NSArray *results, NSError *error))block {
     __weak typeof(self) weakSelf = self;
-    [self.zusaarAPIClient getSeminars:nil withCompletion:^(NSDictionary *results, NSError *error) {
+    [self.zusaarAPIClient getSeminars:@{@"keyword_or": @"ios,swift,android,デザイン", @"count": @"30"} withCompletion:^(NSDictionary *results, NSError *error) {
         
         NSArray *seminars = nil;
         if (results && [results isKindOfClass:[NSDictionary class]]) {
@@ -134,7 +134,7 @@
         }
     }];
     
-    [self.connpassAPIClient getSeminars:nil withCompletion:^(NSDictionary *results, NSError *error) {
+    [self.connpassAPIClient getSeminars:@{@"keyword_or": @"ios,swift,android,デザイン", @"count": @"30", @"order": @"2"} withCompletion:^(NSDictionary *results, NSError *error) {
         
         NSArray *seminars = nil;
         if (results && [results isKindOfClass:[NSDictionary class]]) {
@@ -147,12 +147,12 @@
         }
     }];
     
-    [self.atndAPIClient getSeminars:@{@"format": @"json"} withCompletion:^(NSDictionary *results, NSError *error) {
+    [self.atndAPIClient getSeminars:@{@"format": @"json", @"keyword_or": @"ios,swift,android,デザイン", @"count": @"30"} withCompletion:^(NSDictionary *results, NSError *error) {
         
         NSArray *seminars = nil;
         if (results && [results isKindOfClass:[NSDictionary class]]) {
             NSArray *seminarsJSON = results[@"events"];
-            seminars = [weakSelf parseSeminars:seminarsJSON withSeminarType:SeminarTypeZusaar];
+            seminars = [weakSelf parseSeminars:seminarsJSON withSeminarType:SeminarTypeAtnd];
         }
         
         if (block) {
@@ -236,9 +236,13 @@
     
     [seminars enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
         
-        SeminarModel *seminar = [self parseSeminar:obj withType:type];
+        SeminarModel *seminar = [[SeminarModel alloc] init];
+        if (type == SeminarTypeAtnd) {
+            seminar = [self parseSeminar:obj[@"event"] withType:type];
+        } else {
+            seminar = [self parseSeminar:obj withType:type];
+        }
         [mutableSeminars addObject:seminar];
-        
     }];
     
     return [mutableSeminars copy];

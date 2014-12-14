@@ -29,7 +29,16 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    self.titleLabel.text = self.seminarInfo.title;
+    NSMutableParagraphStyle *paragrahStyle = [[NSMutableParagraphStyle alloc] init];
+    paragrahStyle.minimumLineHeight = 30.0f;
+    paragrahStyle.maximumLineHeight = 30.0f;
+    NSMutableAttributedString *attributedText = [[NSMutableAttributedString alloc] initWithString:self.seminarInfo.title];
+    [attributedText addAttribute:NSParagraphStyleAttributeName
+                           value:paragrahStyle
+                           range:NSMakeRange(0, attributedText.length)];
+    self.titleLabel.attributedText = attributedText;
+    
+    
     self.catchLabel.text = self.seminarInfo.catchCopy;
     self.dateLabel.text = [self.seminarInfo schedule];
     self.numberLabel.text = [self.seminarInfo numberStatus];

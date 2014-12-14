@@ -31,7 +31,7 @@
         return @"開催日未定";
     }
     
-    return [NSString stringWithFormat:@"%@ - %@", [self startDateString], [self endDateString]];
+    return [NSString stringWithFormat:@"%@ - %@", [self startDateString], [self endTimeString]];
 }
 
 - (NSString *)numberStatus {
@@ -39,10 +39,28 @@
 }
 
 - (NSString *)placeInfo {
-    return [NSString stringWithFormat:@"%@\n%@", self.address, self.place];
+    NSString *address = @"";
+    if (self.address) {
+        address = self.address;
+    }
+    
+    NSString *place = @"";
+    if (self.place) {
+        place = self.place;
+    }
+    
+    return [NSString stringWithFormat:@"%@\n%@", address, place];
 }
 
 #pragma mark - private
+- (NSString *)endTimeString {
+    if (!self.endedAt) {
+        return @"";
+    }
+    return [DateUtil formatDate:self.endedAt formatString:@"HH:mm"];
+}
+
+
 - (NSString *)commonDateString:(NSDate *)date {
     NSString *dateString = [DateUtil formatDate:self.startedAt formatString:@"yyyy年MM月dd日 HH:mm"];
     if (!dateString) {

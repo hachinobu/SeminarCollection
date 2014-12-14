@@ -83,7 +83,7 @@ static NSString * const kCellIdentifier = @"SeminarCell";
     [[SeminarAPIManager sharedManager] reloadSeminarsWithType:SeminarTypeAll withBlock:^(NSError *error) {
         
         if (error) {
-            
+            NSLog(@"error:%@", error.localizedDescription);
         }
         
         [weakSelf.refreshControl endRefreshing];
@@ -111,7 +111,6 @@ static NSString * const kCellIdentifier = @"SeminarCell";
     
     return cell;
 }
-
 
 #pragma mark - segue
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
