@@ -39,6 +39,7 @@
 		C2CEF18619756519006C5E5B /* Seminar.m in Sources */ = {isa = PBXBuildFile; fileRef = C2CEF18419756519006C5E5B /* Seminar.m */; };
 		C2CEF18A1975660F006C5E5B /* ZusaarAPIClient.m in Sources */ = {isa = PBXBuildFile; fileRef = C2CEF1891975660F006C5E5B /* ZusaarAPIClient.m */; };
 		C2D5A3F81A3D737F00F615B5 /* HACUpDownTransition.m in Sources */ = {isa = PBXBuildFile; fileRef = C2D5A3F71A3D737F00F615B5 /* HACUpDownTransition.m */; };
+		C2D5A3FB1A3DD47D00F615B5 /* Icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C2D5A3FA1A3DD47D00F615B5 /* Icon@2x.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -105,6 +106,7 @@
 		C2CEF1891975660F006C5E5B /* ZusaarAPIClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZusaarAPIClient.m; sourceTree = "<group>"; };
 		C2D5A3F61A3D737F00F615B5 /* HACUpDownTransition.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HACUpDownTransition.h; sourceTree = "<group>"; };
 		C2D5A3F71A3D737F00F615B5 /* HACUpDownTransition.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HACUpDownTransition.m; sourceTree = "<group>"; };
+		C2D5A3FA1A3DD47D00F615B5 /* Icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon@2x.png"; sourceTree = "<group>"; };
 		F7E94DBCE0111A16E03D290E /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -231,6 +233,7 @@
 		C2CEF14619755F3C006C5E5B /* SeminarCollection */ = {
 			isa = PBXGroup;
 			children = (
+				C2D5A3F91A3DD46100F615B5 /* Resource */,
 				C2D5A3F51A3D731E00F615B5 /* Transition */,
 				C251AEA21A3BFA6E00DD3992 /* Controller */,
 				C251AE9D1A3BF67700DD3992 /* View */,
@@ -319,6 +322,14 @@
 				C2D5A3F71A3D737F00F615B5 /* HACUpDownTransition.m */,
 			);
 			path = Transition;
+			sourceTree = "<group>";
+		};
+		C2D5A3F91A3DD46100F615B5 /* Resource */ = {
+			isa = PBXGroup;
+			children = (
+				C2D5A3FA1A3DD47D00F615B5 /* Icon@2x.png */,
+			);
+			path = Resource;
 			sourceTree = "<group>";
 		};
 		C2E72D8DFE45E8C89ECE6D11 /* Pods */ = {
@@ -410,6 +421,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				C2CEF15919755F3C006C5E5B /* Images.xcassets in Resources */,
+				C2D5A3FB1A3DD47D00F615B5 /* Icon@2x.png in Resources */,
 				C2CEF14B19755F3C006C5E5B /* InfoPlist.strings in Resources */,
 				C2CEF15419755F3C006C5E5B /* Main.storyboard in Resources */,
 			);
