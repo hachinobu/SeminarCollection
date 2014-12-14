@@ -10,4 +10,6 @@
 
 @interface HACSeminarListVC : UITableViewController
 
+@property (nonatomic, assign) CGRect sliceRect;
+
 @end

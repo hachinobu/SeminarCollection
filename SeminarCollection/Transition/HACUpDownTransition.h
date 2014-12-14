@@ -10,4 +10,6 @@
 
 @interface HACUpDownTransition : NSObject <UIViewControllerAnimatedTransitioning>
 
+@property (nonatomic, assign) BOOL pushing;
+
 @end

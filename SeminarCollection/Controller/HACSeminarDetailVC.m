@@ -90,10 +90,10 @@
     // Dispose of any resources that can be recreated.
 }
 
+#pragma mark - Action
 - (IBAction)openEvent:(id)sender {
     NSURL *eventURL = [NSURL URLWithString:self.seminarInfo.eventUrl];
     [[UIApplication sharedApplication] openURL:eventURL];
 }
-
 
 @end

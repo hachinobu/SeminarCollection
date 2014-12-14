@@ -22,7 +22,7 @@
             </objects>
             <point key="canvasLocation" x="-384" y="468"/>
         </scene>
-        <!--セミナー-->
+        <!--一覧-->
         <scene sceneID="RPA-Ge-jaq">
             <objects>
                 <tableViewController id="fIJ-W0-ipk" customClass="HACSeminarListVC" sceneMemberID="viewController">
@@ -31,7 +31,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
-                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="SeminarCell" rowHeight="137" id="Eme-oJ-VnU" customClass="HACSeminarCell">
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="SeminarCell" rowHeight="137" id="Eme-oJ-VnU" customClass="HACSeminarCell">
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Eme-oJ-VnU" id="505-Ix-IYy">
                                     <autoresizingMask key="autoresizingMask"/>
@@ -47,7 +47,7 @@
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="サイト名" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WIb-4E-4U8">
-                                            <rect key="frame" x="219" y="8" width="60" height="20"/>
+                                            <rect key="frame" x="252" y="8" width="60" height="20"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="20" id="0pD-9J-m6g"/>
                                             </constraints>
@@ -56,7 +56,7 @@
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="タイトル" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="chW-GW-1Jr">
-                                            <rect key="frame" x="8" y="39" width="271" height="58"/>
+                                            <rect key="frame" x="8" y="39" width="304" height="58"/>
                                             <fontDescription key="fontDescription" name="HiraKakuProN-W6" family="Hiragino Kaku Gothic ProN" pointSize="17"/>
                                             <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                             <nil key="highlightedColor"/>
@@ -98,7 +98,7 @@
                             <outlet property="delegate" destination="fIJ-W0-ipk" id="VbO-2G-lV5"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="セミナー" id="aOV-fO-BDR"/>
+                    <navigationItem key="navigationItem" title="一覧" id="aOV-fO-BDR"/>
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="obT-Ex-p6k" userLabel="First Responder" sceneMemberID="firstResponder"/>

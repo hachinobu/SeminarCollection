@@ -19,6 +19,7 @@ static NSString * const kCellIdentifier = @"SeminarCell";
 
 @property (strong, nonatomic) UIRefreshControl *refreshControl;
 @property (strong, nonatomic) NSMutableArray *seminars;
+@property (strong, nonatomic, readwrite) NSIndexPath *selectedIndexPath;
 
 @end
 
@@ -119,15 +120,19 @@ static NSString * const kCellIdentifier = @"SeminarCell";
     HACSeminarDetailVC *vc = (HACSeminarDetailVC *)segue.destinationViewController;
     NSIndexPath *selectedIdx = [self.tableView indexPathForSelectedRow];
     vc.seminarInfo = [SeminarAPIManager sharedManager].seminars[selectedIdx.row];
+    vc.navigationController.delegate = self;
 }
 
 #pragma mark - UINavigationControllerDelegate
-- (id<UIViewControllerAnimatedTransitioning>)navigationController:(UINavigationController *)navigationController animationControllerForOperation:(UINavigationControllerOperation)operation fromViewController:(UIViewController *)fromVC toViewController:(UIViewController *)toVC {
+- (id<UIViewControllerAnimatedTransitioning>)navigationController:(UINavigationController *)navigationController
+                                  animationControllerForOperation:(UINavigationControllerOperation)operation
+                                               fromViewController:(UIViewController *)fromVC
+                                                 toViewController:(UIViewController *)toVC {
     
-    if (operation == UINavigationControllerOperationPush) {
-        return [HACUpDownTransition new];
-    }
-    return nil;
+    HACUpDownTransition *transition = [HACUpDownTransition new];
+    transition.pushing = (operation == UINavigationControllerOperationPush);
+    return transition;
+    
 }
 
 /*
