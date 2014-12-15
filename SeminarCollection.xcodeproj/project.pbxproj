@@ -28,7 +28,6 @@
 		C2CEF14D19755F3C006C5E5B /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = C2CEF14C19755F3C006C5E5B /* main.m */; };
 		C2CEF15119755F3C006C5E5B /* HACAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = C2CEF15019755F3C006C5E5B /* HACAppDelegate.m */; };
 		C2CEF15419755F3C006C5E5B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C2CEF15219755F3C006C5E5B /* Main.storyboard */; };
-		C2CEF15919755F3C006C5E5B /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C2CEF15819755F3C006C5E5B /* Images.xcassets */; };
 		C2CEF16019755F3C006C5E5B /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C2CEF15F19755F3C006C5E5B /* XCTest.framework */; };
 		C2CEF16119755F3C006C5E5B /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C2CEF14019755F3C006C5E5B /* Foundation.framework */; };
 		C2CEF16219755F3C006C5E5B /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C2CEF14419755F3C006C5E5B /* UIKit.framework */; };
@@ -40,6 +39,7 @@
 		C2CEF18A1975660F006C5E5B /* ZusaarAPIClient.m in Sources */ = {isa = PBXBuildFile; fileRef = C2CEF1891975660F006C5E5B /* ZusaarAPIClient.m */; };
 		C2D5A3F81A3D737F00F615B5 /* HACUpDownTransition.m in Sources */ = {isa = PBXBuildFile; fileRef = C2D5A3F71A3D737F00F615B5 /* HACUpDownTransition.m */; };
 		C2D5A3FB1A3DD47D00F615B5 /* Icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C2D5A3FA1A3DD47D00F615B5 /* Icon@2x.png */; };
+		C2D878E21A3F296000113A55 /* HACLaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = C2D878E11A3F296000113A55 /* HACLaunchScreen.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -91,7 +91,6 @@
 		C2CEF14F19755F3C006C5E5B /* HACAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HACAppDelegate.h; sourceTree = "<group>"; };
 		C2CEF15019755F3C006C5E5B /* HACAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HACAppDelegate.m; sourceTree = "<group>"; };
 		C2CEF15319755F3C006C5E5B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		C2CEF15819755F3C006C5E5B /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		C2CEF15E19755F3C006C5E5B /* SeminarCollectionTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SeminarCollectionTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		C2CEF15F19755F3C006C5E5B /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
 		C2CEF16719755F3C006C5E5B /* SeminarCollectionTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "SeminarCollectionTests-Info.plist"; sourceTree = "<group>"; };
@@ -107,6 +106,7 @@
 		C2D5A3F61A3D737F00F615B5 /* HACUpDownTransition.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HACUpDownTransition.h; sourceTree = "<group>"; };
 		C2D5A3F71A3D737F00F615B5 /* HACUpDownTransition.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HACUpDownTransition.m; sourceTree = "<group>"; };
 		C2D5A3FA1A3DD47D00F615B5 /* Icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon@2x.png"; sourceTree = "<group>"; };
+		C2D878E11A3F296000113A55 /* HACLaunchScreen.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HACLaunchScreen.xib; sourceTree = "<group>"; };
 		F7E94DBCE0111A16E03D290E /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -242,8 +242,8 @@
 				C2CEF14F19755F3C006C5E5B /* HACAppDelegate.h */,
 				C2CEF15019755F3C006C5E5B /* HACAppDelegate.m */,
 				C2CEF15219755F3C006C5E5B /* Main.storyboard */,
-				C2CEF15819755F3C006C5E5B /* Images.xcassets */,
 				C2CEF14719755F3C006C5E5B /* Supporting Files */,
+				C2D878E11A3F296000113A55 /* HACLaunchScreen.xib */,
 			);
 			path = SeminarCollection;
 			sourceTree = "<group>";
@@ -420,9 +420,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C2CEF15919755F3C006C5E5B /* Images.xcassets in Resources */,
 				C2D5A3FB1A3DD47D00F615B5 /* Icon@2x.png in Resources */,
 				C2CEF14B19755F3C006C5E5B /* InfoPlist.strings in Resources */,
+				C2D878E21A3F296000113A55 /* HACLaunchScreen.xib in Resources */,
 				C2CEF15419755F3C006C5E5B /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -575,7 +575,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
 			};
@@ -607,7 +607,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				SDKROOT = iphoneos;
 				VALIDATE_PRODUCT = YES;
 			};
@@ -617,12 +617,10 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 7A233DA735ACA7D7F85AB111 /* Pods.debug.xcconfig */;
 			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "SeminarCollection/SeminarCollection-Prefix.pch";
 				INFOPLIST_FILE = "SeminarCollection/SeminarCollection-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};
@@ -632,12 +630,10 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = F7E94DBCE0111A16E03D290E /* Pods.release.xcconfig */;
 			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "SeminarCollection/SeminarCollection-Prefix.pch";
 				INFOPLIST_FILE = "SeminarCollection/SeminarCollection-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};
