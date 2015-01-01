@@ -41,8 +41,6 @@ static NSString * const kCellIdentifier = @"SeminarCell";
     [self refreshSeminarInfo:nil];
 }
 
-
-
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.

@@ -19,9 +19,8 @@
 
 - (void)pushAnimateTransition:(id<UIViewControllerContextTransitioning>)transitionContext {
     HACSeminarListVC *fromVC = (HACSeminarListVC *)[transitionContext viewControllerForKey:UITransitionContextFromViewControllerKey];
-    HACSeminarDetailVC *toVC = (HACSeminarDetailVC *)[transitionContext viewControllerForKey:UITransitionContextToViewControllerKey];
-    UIView *toView = toVC.view;
-    UIView *fromView = fromVC.view;
+    UIView *toView = [transitionContext viewForKey:UITransitionContextToViewKey];
+    UIView *fromView = [transitionContext viewForKey:UITransitionContextFromViewKey];
     
     NSIndexPath *indexPath = [fromVC.tableView indexPathForSelectedRow];
     HACSeminarCell *cell = (HACSeminarCell *)[fromVC.tableView cellForRowAtIndexPath:indexPath];
@@ -68,10 +67,9 @@
 }
 
 - (void)popAnimateTransition:(id<UIViewControllerContextTransitioning>)transitionContext {
-    HACSeminarDetailVC *fromVC = (HACSeminarDetailVC *)[transitionContext viewControllerForKey:UITransitionContextFromViewControllerKey];
     HACSeminarListVC *toVC = (HACSeminarListVC *)[transitionContext viewControllerForKey:UITransitionContextToViewControllerKey];
-    UIView *toView = toVC.view;
-    UIView *fromView = fromVC.view;
+    UIView *toView = [transitionContext viewForKey:UITransitionContextToViewKey];
+    UIView *fromView = [transitionContext viewForKey:UITransitionContextFromViewKey];
     
     UIView *container = [transitionContext containerView];
     CGRect sliceRect = toVC.sliceRect;

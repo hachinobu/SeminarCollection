@@ -40,6 +40,9 @@
 		C2D5A3F81A3D737F00F615B5 /* HACUpDownTransition.m in Sources */ = {isa = PBXBuildFile; fileRef = C2D5A3F71A3D737F00F615B5 /* HACUpDownTransition.m */; };
 		C2D5A3FB1A3DD47D00F615B5 /* Icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C2D5A3FA1A3DD47D00F615B5 /* Icon@2x.png */; };
 		C2D878E21A3F296000113A55 /* HACLaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = C2D878E11A3F296000113A55 /* HACLaunchScreen.xib */; };
+		C2D878EB1A453C3100113A55 /* HACWebSeminarDetail.m in Sources */ = {isa = PBXBuildFile; fileRef = C2D878EA1A453C3100113A55 /* HACWebSeminarDetail.m */; };
+		C2D878EE1A519C5D00113A55 /* HACTransformTransitionController.m in Sources */ = {isa = PBXBuildFile; fileRef = C2D878ED1A519C5D00113A55 /* HACTransformTransitionController.m */; };
+		C2D878F11A51A80A00113A55 /* HACTransforTransitionDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = C2D878F01A51A80A00113A55 /* HACTransforTransitionDelegate.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -107,6 +110,12 @@
 		C2D5A3F71A3D737F00F615B5 /* HACUpDownTransition.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HACUpDownTransition.m; sourceTree = "<group>"; };
 		C2D5A3FA1A3DD47D00F615B5 /* Icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon@2x.png"; sourceTree = "<group>"; };
 		C2D878E11A3F296000113A55 /* HACLaunchScreen.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HACLaunchScreen.xib; sourceTree = "<group>"; };
+		C2D878E91A453C3100113A55 /* HACWebSeminarDetail.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HACWebSeminarDetail.h; sourceTree = "<group>"; };
+		C2D878EA1A453C3100113A55 /* HACWebSeminarDetail.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HACWebSeminarDetail.m; sourceTree = "<group>"; };
+		C2D878EC1A519C5D00113A55 /* HACTransformTransitionController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HACTransformTransitionController.h; sourceTree = "<group>"; };
+		C2D878ED1A519C5D00113A55 /* HACTransformTransitionController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HACTransformTransitionController.m; sourceTree = "<group>"; };
+		C2D878EF1A51A80A00113A55 /* HACTransforTransitionDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HACTransforTransitionDelegate.h; sourceTree = "<group>"; };
+		C2D878F01A51A80A00113A55 /* HACTransforTransitionDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HACTransforTransitionDelegate.m; sourceTree = "<group>"; };
 		F7E94DBCE0111A16E03D290E /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -160,6 +169,8 @@
 				C251AEA41A3BFAC900DD3992 /* HACSeminarListVC.m */,
 				C251AEA91A3C2B9E00DD3992 /* HACSeminarDetailVC.h */,
 				C251AEAA1A3C2B9E00DD3992 /* HACSeminarDetailVC.m */,
+				C2D878E91A453C3100113A55 /* HACWebSeminarDetail.h */,
+				C2D878EA1A453C3100113A55 /* HACWebSeminarDetail.m */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -320,6 +331,10 @@
 			children = (
 				C2D5A3F61A3D737F00F615B5 /* HACUpDownTransition.h */,
 				C2D5A3F71A3D737F00F615B5 /* HACUpDownTransition.m */,
+				C2D878EC1A519C5D00113A55 /* HACTransformTransitionController.h */,
+				C2D878ED1A519C5D00113A55 /* HACTransformTransitionController.m */,
+				C2D878EF1A51A80A00113A55 /* HACTransforTransitionDelegate.h */,
+				C2D878F01A51A80A00113A55 /* HACTransforTransitionDelegate.m */,
 			);
 			path = Transition;
 			sourceTree = "<group>";
@@ -479,6 +494,7 @@
 				C2CEF14D19755F3C006C5E5B /* main.m in Sources */,
 				C298DCE819778839000EB78A /* SeminarAPIClient.m in Sources */,
 				C298DCD1197613E4000EB78A /* DateUtil.m in Sources */,
+				C2D878EB1A453C3100113A55 /* HACWebSeminarDetail.m in Sources */,
 				C298DCE21977871D000EB78A /* AtndModel.m in Sources */,
 				C2CEF18A1975660F006C5E5B /* ZusaarAPIClient.m in Sources */,
 				C2CEF15119755F3C006C5E5B /* HACAppDelegate.m in Sources */,
@@ -486,8 +502,10 @@
 				C251AEA11A3BF89E00DD3992 /* HACSeminarCell.m in Sources */,
 				C2CEF1781975609C006C5E5B /* Seminar.xcdatamodeld in Sources */,
 				C298DCEB197789DE000EB78A /* AtndApiClient.m in Sources */,
+				C2D878EE1A519C5D00113A55 /* HACTransformTransitionController.m in Sources */,
 				C298DCE51977880C000EB78A /* ConnpassAPIClient.m in Sources */,
 				C298DCDF19778678000EB78A /* ConnpassModel.m in Sources */,
+				C2D878F11A51A80A00113A55 /* HACTransforTransitionDelegate.m in Sources */,
 				C251AEAB1A3C2B9E00DD3992 /* HACSeminarDetailVC.m in Sources */,
 				C298DCC91975FB24000EB78A /* SeminarModel.m in Sources */,
 				C2CEF18619756519006C5E5B /* Seminar.m in Sources */,

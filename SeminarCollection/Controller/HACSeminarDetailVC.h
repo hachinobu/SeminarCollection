@@ -11,6 +11,9 @@
 @class Seminar;
 @interface HACSeminarDetailVC : UITableViewController
 
+@property (weak, nonatomic, readonly) IBOutlet UIButton *detailButton;
+
 @property (strong, nonatomic) Seminar *seminarInfo;
+@property (assign, nonatomic) CGPoint buttonTapPoint;
 
 @end
